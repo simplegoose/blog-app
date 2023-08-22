@@ -1,0 +1,12 @@
+<div id="users" style="width: 90%; margin: auto">
+  <% @users.each do |user| %>
+    <div  style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem;">
+      <%= image_tag user.photo, :style => "border: 2px solid black; max-height: 140px; height: 100%;" %>
+      <div style="min-width: 80%; border: 2px solid black; padding: 0 2rem; padding-bottom: 1rem;">
+        <p style="font-size: 2rem;"><%= user.name %></p>
+        <span style="text-align: end;">Number of posts: <%= user.post_counter %></span>
+      </div>
+    </div>
+  <% end %>
+</div>
+
