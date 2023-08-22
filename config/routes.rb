@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   root "users#index"
   resources :users, only: [:show]
-  get "users/:user_id/posts", to: "users#posts"
-  get "users/:user_id/posts/:post_id", to: "users#show_post_by_id"
+  get "users/:user_id/posts", to: "posts#index"
+  get "users/:user_id/posts/:post_id", to: "posts#show"
 end
