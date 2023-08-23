@@ -13,6 +13,12 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:index)
     end
+
+    it 'returns the correct placeholder text' do
+      get "/users/#{user.id}/posts"
+
+      expect(response.body).to include('Number of posts')
+    end
   end
 
   describe 'GET /show' do
@@ -27,6 +33,19 @@ RSpec.describe 'Posts', type: :request do
 
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:show)
+    end
+
+    it 'returns /users/:user_id/posts/:post_id page view as html' do
+      get "/users/#{user.id}/posts/#{post.id}"
+
+      expect(response).to have_http_status(:success)
+      expect(response).to render_template(:show)
+    end
+
+    it 'returns the correct placeholder text' do
+      get "/users/#{user.id}/posts/#{post.id}"
+
+      expect(response.body).to include('Hello by Kane')
     end
   end
 end
