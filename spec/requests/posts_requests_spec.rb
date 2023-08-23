@@ -28,17 +28,15 @@ RSpec.describe 'Posts', type: :request do
     end
     let(:post) { Post.create(author: user, title: 'Hello', text: 'This is my first post') }
 
-    it 'returns /users/:user_id/posts/:post_id page view as html' do
+    it 'returns a http 200 sucesss' do
       get "/users/#{user.id}/posts/#{post.id}"
 
       expect(response).to have_http_status(:success)
-      expect(response).to render_template(:show)
     end
 
     it 'returns /users/:user_id/posts/:post_id page view as html' do
       get "/users/#{user.id}/posts/#{post.id}"
 
-      expect(response).to have_http_status(:success)
       expect(response).to render_template(:show)
     end
 
