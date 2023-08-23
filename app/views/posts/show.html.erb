@@ -1,6 +1,6 @@
-<article id="user_post" style="width: 90%; margin: auto">
-  <div class="post_wrapper" style="border: 2px solid black; padding: 0 1rem;">
-    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem;">
+<article id="user_post">
+  <div class="post_wrapper">
+    <div class="post_header">
       <div class="header">
         <h1><%= @post.title %> by <%= @user.name %></h1>
       </div>
@@ -9,11 +9,11 @@
         <span>Likes: <%= @post.likes_counter %></span>
       </div>
     </div>
-    <p style="word-break: break-word;"><%= @post.text %></p>
+    <p style="post_content"><%= @post.text %></p>
   </div>
-  <div class="comments_wrapper" style="border: 2px solid black; padding: 1rem 1rem; margin-top: 1rem;">
+  <div class="comments_wrapper">
     <% @post.recent_comments.each do |comment| %>
-      <div style="margin-bottom: 1rem;">
+      <div class="comment">
         <span>User <%= comment.users_id %></span> : <span><%= comment.text %></span>
       </div>
     <% end %>
