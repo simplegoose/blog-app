@@ -17,7 +17,7 @@ RSpec.describe 'Users', type: :request do
     it 'returns the correct placeholder text' do
       get '/'
 
-      expect(response.body).to include('Index page')
+      expect(response.body).to include('Users')
     end
   end
 
