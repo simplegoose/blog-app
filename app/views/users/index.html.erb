@@ -1,4 +1,18 @@
 <div class="users">
+  <% flash.each do |type, msg| %>
+    <div class="alert">
+      <% if type == 'error' then %>
+        <div class="alert_inner alert-danger">
+          <%= msg %>
+        </div>
+      <% end %>
+      <% if type == 'success' then %>
+        <div class="alert_inner alert-success">
+          <%= msg %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
   <h1>Users</h1>
   <% @users.each do |user| %>
     <div class="user_info_wrapper">
