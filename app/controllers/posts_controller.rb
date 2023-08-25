@@ -32,9 +32,5 @@ class PostsController < ApplicationController
     @post = Post.find(params[:post_id])
     @user = User.find(params[:user_id])
   end
-
-  def current_user
-    @user = User.first
-  end
   
 end
