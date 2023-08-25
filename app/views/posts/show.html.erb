@@ -9,7 +9,14 @@
         <span>Likes: <%= @post.likes_counter %></span>
       </div>
     </div>
-    <p style="post_content"><%= @post.text %></p>
+    <div class="post_actions">
+      <p style="post_content"><%= @post.text %></p>
+        <%= form_with url: like_create_path(@post.author, @post), method: :post, remote: true do |form| %>
+          <%= form.hidden_field :author_id, value: @user.id %>
+          <%= form.hidden_field :post_id, value: @post.id %>
+          <%= form.submit "Like" %>
+        <% end %>
+    </div>
   </div>
   <div class="comments_wrapper">
     <% @post.recent_comments.each do |comment| %>
