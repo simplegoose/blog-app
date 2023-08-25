@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
   def create
     user = current_user
-    post = Post.new(params.require(:post).permit(:title, :text))
+    post = Post.new(post_params)
 
     post.author = user
     if post.save
@@ -30,5 +30,11 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:post_id])
     @user = User.find(params[:user_id])
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end
