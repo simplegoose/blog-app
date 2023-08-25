@@ -18,7 +18,6 @@ class PostsController < ApplicationController
     post.author = user
     if post.save
       flash[:success] = "Success: Your post has been saved" 
-      puts 'user_path heere'
       redirect_to users_home_path
     else
       post = Post.create
