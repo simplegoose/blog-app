@@ -14,6 +14,9 @@
     </div>
   <% end %>
   <h1>Users</h1>
+  <div class="create_post">
+    <%= link_to "Create Post", "/post/new" %>
+  </div>
   <% @users.each do |user| %>
     <div class="user_info_wrapper">
       <%= image_tag user.photo, :class => 'user_avatar' %>
