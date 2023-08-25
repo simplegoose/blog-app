@@ -197,10 +197,43 @@
   justify-content: space-between;
 }
 
+.actions {
+  display: flex;
+  gap: 2rem;
+}
+
 .post_actions form input[type="submit"] {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   font-weight: 500;
   background-color: plum;
   border: none;
+}
+
+.post_actions .comment_link {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  background-color: pink;
+  border: none;
+  text-decoration: none;
+  font-size: 0.8rem;
+  display: inline;
+  color: black;
+}
+
+.create_post {
+  padding-bottom: 2rem;
+}
+
+.create_post a {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  background-color: pink;
+  border: none;
+  text-decoration: none;
+  font-size: 0.8rem;
+  display: inline;
+  color: black;
 }
