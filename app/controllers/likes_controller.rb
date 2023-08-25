@@ -2,15 +2,14 @@ class LikesController < ApplicationController
   def create
     user = current_user
     post = Post.find(params[:post_id])
-    like = Like.new(author: user, post: post)
+    like = Like.new(author: user, post:)
 
     if like.save
-      flash[:success] = "Success: Your like has been saved" 
+      flash[:success] = 'Success: Your like has been saved'
       redirect_to "/users/#{params[:author_id]}/posts/#{params[:post_id]}"
     else
-      flash[:error] = "Error: Like could not be saved"
+      flash[:error] = 'Error: Like could not be saved'
       redirect_to users_home_path
     end
   end
-  
 end

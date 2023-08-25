@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   def new
     post = Post.create
     respond_to do |format|
-      format.html { render :new, locals: { post: post } }
+      format.html { render :new, locals: { post: } }
     end
   end
 
@@ -17,12 +17,12 @@ class PostsController < ApplicationController
 
     post.author = user
     if post.save
-      flash[:success] = "Success: Your post has been saved" 
+      flash[:success] = 'Success: Your post has been saved'
       redirect_to users_home_path
     else
       post = Post.create
-      flash[:error] = "Error: Post could not be saved"
-      render :new, locals: { post: post }
+      flash[:error] = 'Error: Post could not be saved'
+      render :new, locals: { post: }
     end
   end
 
@@ -31,5 +31,4 @@ class PostsController < ApplicationController
     @post = Post.find(params[:post_id])
     @user = User.find(params[:user_id])
   end
-  
 end
