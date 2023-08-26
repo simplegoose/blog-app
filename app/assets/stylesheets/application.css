@@ -93,7 +93,8 @@
   margin-top: 2rem;
 }
 
-.see_all_link {
+.see_all_link,
+.create_post {
   display: block;
   text-decoration: none;
   margin: 2rem auto 0;
@@ -222,18 +223,22 @@
   color: black;
 }
 
-.create_post {
-  padding-bottom: 2rem;
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
-.create_post a {
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-weight: 500;
-  background-color: pink;
-  border: none;
+.links a {
+  margin: 0;
+}
+
+.text-decoration-none {
   text-decoration: none;
-  font-size: 0.8rem;
-  display: inline;
+}
+
+.text-black {
   color: black;
 }
