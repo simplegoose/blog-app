@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @user = User.find(params[:user_id])
     post = Post.create
     respond_to do |format|
       format.html { render :new, locals: { post: } }
