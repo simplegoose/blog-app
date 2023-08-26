@@ -10,14 +10,14 @@
       </div>
     </div>
     <div class="post_actions">
-      <p style="post_content"><%= @post.text %></p>
+      <p class="post_content"><%= @post.text %></p>
       <div class="actions">
-        <%= form_with url: like_create_path(@post.author, @post), method: :post, remote: true do |form| %>
+        <%= form_with url: "/users/#{@user.id}/likes", method: :post, remote: true do |form| %>
           <%= form.hidden_field :author_id, value: @user.id %>
           <%= form.hidden_field :post_id, value: @post.id %>
           <%= form.submit "Like" %>
         <% end %>
-        <%= link_to "Add Comment", "/users/#{@user.id}/post/#{@post.id}/comment/new", :class => "comment_link" %>
+        <%= link_to "Add Comment", "/users/#{@user.id}/posts/#{@post.id}/comment/new", :class => "comment_link" %>
       </div>
     </div>
   </div>
