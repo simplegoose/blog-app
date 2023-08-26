@@ -4,16 +4,16 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
 
   root "users#index", as: "users_home"
-  resources :users, only: [:show]
+
+  resources :users, only: [:show] do
+    resources :posts, only: [:new, :create]
+    resources :likes, only: [:create]
+    resources :comments, only: [:create]
+  end
+
   get "users/:user_id/posts", to: "posts#index"
   get "users/:user_id/posts/:post_id", to: "posts#show", as: "posts_show"
 
-  get "post/new", to: "posts#new", as: "new_post" # new
-  post "post/create", to: "posts#create", as: "post_create" #create
-
-  post "like/create", to: "likes#create", as: "like_create" #create
-
-  get "users/:user_id/post/:post_id/comment/new", to: "comments#new" #new
-  post "comment/create", to: "comments#create", as: "comment_create" #create
+  get "users/:user_id/posts/:post_id/comment/new", to: "comments#new" #new
 
 end
