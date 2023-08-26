@@ -13,17 +13,22 @@
   </div>
 
   <% @user.recent_posts.each_with_index do |post, index| %>
-    <div class="post">
-      <h4>Post #<%= index + 1 %></h4>
-      <div>
-        <p class="post_title"><%= post.title %></p>
+    <%= link_to "/users/#{@user.id}/posts/#{post.id}", :class => "text-decoration-none" do %>
+      <div class="post">
+        <h4>Post #<%= index + 1 %></h4>
+        <div>
+          <p class="post_title text-black"><%= post.title %></p>
+        </div>
+        <div class="post_footer text-black">
+          <span>Comments: <%= post.comment__counter %></span>
+          <span>Likes: <%= post.likes_counter %></span>
+        </div>
       </div>
-      <div class="post_footer">
-        <span>Comments: <%= post.comment__counter %></span>
-        <span>Likes: <%= post.likes_counter %></span>
-      </div>
-    </div>
+    <% end %>
   <% end %>
 
-  <%= link_to "See all posts", "/users/#{@user.id}/posts", :class => 'see_all_link' %>
+  <div class="links">
+    <%= link_to "See all posts", "/users/#{@user.id}/posts", :class => 'see_all_link' %>
+    <%= link_to "Create Post", "/users/#{@user.id}/posts/new", :class => 'create_post' %>
+  </div>
 </article>
